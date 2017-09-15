@@ -33,9 +33,10 @@ public class CommonController {
 	public JsonResult showWeather(HttpServletRequest request){
 		String ip=request.getRemoteAddr();
 		logger.warn("当前访问用户IP"+ip);
-		//List<Map<String,Object>>list=commonService.getWeather(ip);
-		//测试环境写死IP：江苏南京
-		List<Map<String,Object>>list=commonService.getWeather("114.222.237.206");
+		//部署的时候打开获取IP
+		List<Map<String,Object>>list=commonService.getWeather(ip);
+		//开发环境写死IP：江苏南京	-不然获取的本机IP会有问题
+		//List<Map<String,Object>>list=commonService.getWeather("114.222.237.206");
 		logger.warn(list);
 		return new JsonResult(list);
 	}

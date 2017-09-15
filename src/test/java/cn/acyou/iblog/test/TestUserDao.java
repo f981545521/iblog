@@ -22,7 +22,7 @@ public class TestUserDao extends BaseTest {
 	//测试UserDao
 	@Test
 	public void testfindUserByName(){
-		String name="admin";
+		String name="youfang@acyou.cn";
 		User u=dao.findUserByUserName(name);
 		System.out.println(u);
 	}

@@ -9,7 +9,7 @@
 		FROM
 			ib_user
 		WHERE
-			username = #{username}
+			username = #{username} or email = #{username}
 	</select>
 	<select id="findUserBuUid" parameterType="String" resultType="cn.acyou.iblog.entity.User">
 		SELECT
@@ -27,7 +27,7 @@
 	
 	
 	<select id="findUserByEmail" parameterType="string" resultType="string">
-		SELECT email FROM ib_user WHERE email=#{email};
+		SELECT email FROM ib_user WHERE email= #{email}
 	</select>
 	
 </mapper>
