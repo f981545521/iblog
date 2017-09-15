@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+   <!-- namespace:命名空间 -->
+<mapper namespace="cn.acyou.iblog.dao.UserDao">
+	<select id="findUserByUserName" parameterType="String" resultType="cn.acyou.iblog.entity.User">
+		SELECT
+			*
+		FROM
+			ib_user
+		WHERE
+			username = #{username}
+	</select>
+	<select id="findUserBuUid" parameterType="String" resultType="cn.acyou.iblog.entity.User">
+		SELECT
+			*
+		FROM
+			ib_user
+		WHERE
+			uid = #{uid}
+	</select>
+	<!-- 添加用户 -->
+	<insert id="addUser" parameterType="cn.acyou.iblog.entity.User">
+		INSERT INTO ib_user ( uid, username, password, nickname, role, enable, photo, email, description, createtime ) 
+			VALUE ( #{uid}, #{username},#{password},#{nickname},#{role},#{enable},#{photo},#{email},#{description},default )
+	</insert>
+	
+	
+	<select id="findUserByEmail" parameterType="string" resultType="string">
+		SELECT email FROM ib_user WHERE email=#{email};
+	</select>
+	
+</mapper>

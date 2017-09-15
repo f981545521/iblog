@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!-- namespace:分类管理 -->
+<mapper namespace="cn.acyou.iblog.dao.SortDao">
+	<!-- 查找自己名下的分类 -->
+	<select id="findsSortsByUid" parameterType="string" resultType="map">
+		SELECT sid,sortname,description,createtime FROM ib_sort WHERE uid=#{uid}
+	</select>
+	<!-- 添加分类 -->
+	<insert id="addSort" parameterType="cn.acyou.iblog.entity.Sort">
+		insert into ib_sort values(default,#{sortName},#{uid},#{description},default)
+	</insert>
+	<!-- 删除指定分类 -->
+	<delete id="delSortBySid" parameterType="string">
+		DELETE FROM ib_sort WHERE sid = #{sid}
+	</delete>
+	<!-- 查找指定分类 -->
+	<select id="findSortBySid" parameterType="string" resultType="cn.acyou.iblog.entity.Sort">
+		SELECT sid,sortName,uid,description,createTime FROM ib_sort where sid = #{sid}
+	</select>
+	
+	<!-- 修改分类 -->
+	<update id="updateSort"
+		parameterType="cn.acyou.iblog.entity.Sort">
+		update
+			ib_sort 
+		<set><!-- set标签和SET子句一样的 -->
+			<if test="sid!=null">
+				sid=#{sid},
+			</if>
+			<if test="sortName!=null">
+				sortName=#{sortName},
+			</if>
+			<if test="uid!=null">
+				uid=#{uid},
+			</if>
+			<if test="description!=null">
+				description=#{description},
+			</if>
+			<if test="createTime!=null">
+				createTime=#{createTime},
+			</if>
+		</set>
+		where 
+			sid=#{sid} 
+	</update>
+	
+	
+	<!-- 查找分类名与描述 -->
+	<select id="findSortNamesByUid" parameterType="string" resultType="map">
+		SELECT sortname,description from ib_sort where uid = #{uid}
+	</select>
+</mapper>
