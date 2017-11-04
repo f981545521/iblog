@@ -27,5 +27,7 @@
 一些工程中的配置：
 
 > .settings	-- 不需要提交
+
 > .project	-- 不需要提交
+
 > .classpath	-- 不需要提交
