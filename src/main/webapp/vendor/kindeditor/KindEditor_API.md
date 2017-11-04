@@ -41,3 +41,4 @@ KindEditor.ready(function(K) {
 - editor.count('text');（字数统计包含纯文本、IMG、EMBED，不包含换行符，IMG和EMBED算一个文字。）
 
 ## 10、
+- ...
