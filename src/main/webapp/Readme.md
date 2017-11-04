@@ -1,5 +1,5 @@
 #项目结构
-- SpringMVC
+- Spring SpringMVC MyBatis 
 
 
 #iBlog版本日志
