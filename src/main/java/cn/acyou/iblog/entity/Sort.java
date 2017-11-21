@@ -2,6 +2,7 @@ package cn.acyou.iblog.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class Sort implements Serializable{
 
@@ -14,6 +15,9 @@ public class Sort implements Serializable{
 	private Integer uid;//所属用户ID
 	private String description;//描述
 	private Timestamp createTime;//创建时间
+	private Date modifyTime;
+	
+	
 	public Sort() {
 		super();
 	}
@@ -47,6 +51,15 @@ public class Sort implements Serializable{
 	public void setCreateTime(Timestamp createTime) {
 		this.createTime = createTime;
 	}
+	public Date getModifyTime() {
+		return modifyTime;
+	}
+	public void setModifyTime(Date modifyTime) {
+		this.modifyTime = modifyTime;
+	}
+	
+	
+	
 	public Sort(Integer sid, String sortName, Integer uid, String description, Timestamp createTime) {
 		super();
 		this.sid = sid;

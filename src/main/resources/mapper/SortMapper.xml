@@ -9,7 +9,7 @@
 	</select>
 	<!-- 添加分类 -->
 	<insert id="addSort" parameterType="cn.acyou.iblog.entity.Sort">
-		insert into ib_sort values(default,#{sortName},#{uid},#{description},default)
+		insert into ib_sort values(default,#{sortName},#{uid},#{description},default,#{modifyTime})
 	</insert>
 	<!-- 删除指定分类 -->
 	<delete id="delSortBySid" parameterType="string">
