@@ -16,7 +16,7 @@
 4. 最后，在工程右键Configure转换成maven工程
 5. 配置Tomcat
  
-注意修改Server.xml 增加：**URIEncoding="utf-8"**
+注意修改Server.xml 增加：`URIEncoding="utf-8"`
 
 ``` 
 <Connector URIEncoding="utf-8" port="80" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />
