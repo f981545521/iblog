@@ -33,10 +33,11 @@ public class TestSortDao extends BaseTest{
 	@Test
 	public void test2(){
 		Sort sort=new Sort();
-		sort.setSortName("仲夏苦夜短");
+		sort.setSortName("天气越来越冷啦");
 		sort.setUid(1);
-		sort.setDescription("开轩纳微凉");
+		sort.setDescription("不开空调不行啦");
 		sort.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		sort.setModifyTime(new Date());
 		int n = sortDao.addSort(sort);
 		System.out.println(n);
 	}
