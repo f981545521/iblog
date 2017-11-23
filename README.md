@@ -15,7 +15,13 @@
 3. 以普通工程导入
 4. 最后，在工程右键Configure转换成maven工程
 5. 配置Tomcat
- 
+
+###  idea
+
+1. 配置Git与GitHub
+2. File -> New -> Project Frim Version Control -> GitHub
+3. 右键项目 -> Add Framework Support... -> Maven
+
 注意修改Server.xml 增加：`URIEncoding="utf-8"`
 
 ``` 
