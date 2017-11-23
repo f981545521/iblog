@@ -22,7 +22,7 @@
 2. File -> New -> Project Frim Version Control -> GitHub
 3. 右键项目 -> Add Framework Support... -> Maven
 
-注意修改Server.xml 增加：`URIEncoding="utf-8"`
+> 注意修改Server.xml 增加：`URIEncoding="utf-8"`
 
 ``` 
 <Connector URIEncoding="utf-8" port="80" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />
