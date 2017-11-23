@@ -19,7 +19,7 @@
 ###  idea
 
 1. 配置Git与GitHub
-2. File -> New -> Project Frim Version Control -> GitHub
+2. File -> New -> Project From Version Control -> GitHub
 3. 右键项目 -> Add Framework Support... -> Maven
 
 > 注意修改**Server.xml** 增加：`URIEncoding="utf-8"`
