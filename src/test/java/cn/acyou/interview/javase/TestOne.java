@@ -1,5 +1,9 @@
 package cn.acyou.interview.javase;
 
+import java.util.UUID;
+
+import org.junit.Test;
+
 public class TestOne {
 
 	public static void main(String[] args) {
@@ -13,6 +17,11 @@ public class TestOne {
 			return num;
 		}
 		return 30;
+	}
+	
+	@Test
+	public void test1(){
+		System.out.println(UUID.randomUUID());
 	}
 
 }
