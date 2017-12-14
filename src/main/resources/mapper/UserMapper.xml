@@ -27,7 +27,7 @@
 	
 	
 	<select id="findUserByEmail" parameterType="string" resultType="string">
-		SELECT email FROM ib_user WHERE email=#{email};
+		SELECT email FROM ib_user WHERE email = #{email}
 	</select>
 	
 </mapper>

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 /**
  * 评论的DAO层接口
  * @author youfang
- * @createTime 2017年7月27日 上午10:52:39
+ * @Date 2017年7月27日 上午10:52:39
  */
 @Repository("commentDao")
 public interface CommentDao {

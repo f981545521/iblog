@@ -19,6 +19,11 @@
 	<select id="findSortBySid" parameterType="string" resultType="cn.acyou.iblog.entity.Sort">
 		SELECT sid,sortName,uid,description,createTime FROM ib_sort where sid = #{sid}
 	</select>
+
+	<!-- 查找所有 -->
+	<select id="findAll" resultType="cn.acyou.iblog.vo.SortVo">
+		SELECT sid,sortName,uid,description,createTime,modify_time FROM ib_sort
+	</select>
 	
 	<!-- 修改分类 -->
 	<update id="updateSort"
@@ -43,7 +48,7 @@
 			</if>
 		</set>
 		where 
-			sid=#{sid} 
+			sid = #{sid}
 	</update>
 	
 	

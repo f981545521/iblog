@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import cn.acyou.iblog.entity.Sort;
+import cn.acyou.iblog.vo.SortVo;
+
 /**
  * 文章分类的数据库访问层
  * @author youfang
@@ -44,4 +46,10 @@ public interface SortDao {
 	 * @return
 	 */
 	public List<Map<String,Object>> findSortNamesByUid(String uid);
+
+	/**
+	 * 查找所有
+	 * @return
+	 */
+	List<SortVo> findAll();
 }

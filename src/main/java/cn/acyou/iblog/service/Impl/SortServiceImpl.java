@@ -34,7 +34,7 @@ public class SortServiceImpl implements SortService{
 	 * @date 2017年8月21日 下午3:34:45
 	 */
 	public List<Map<String, Object>> listSorts(String uid) throws UserNotFoundException {
-		if(uid==null||uid.trim().isEmpty()){
+		if(uid==null || uid.trim().isEmpty()){
 			throw new UserNotFoundException("用户ID不能为空!");
 		}
 		User user=userDao.findUserBuUid(uid);
