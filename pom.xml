@@ -4,6 +4,7 @@
 	<groupId>cn.acyou</groupId>
 	<artifactId>iblog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -111,6 +112,11 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.16</version>
 		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
 		<!-- <dependency> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> 
 			<version>1.1.1</version> </dependency> -->
 		<!-- Redis -->
@@ -152,6 +158,17 @@
 			<artifactId>pinyin4j</artifactId>
 			<version>2.5.0</version>
 		</dependency>
-
+		<!-- 乐观锁插件 -->
+		<dependency>
+			<groupId>se.spagettikod</groupId>
+			<artifactId>optimist</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.18</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 </project>

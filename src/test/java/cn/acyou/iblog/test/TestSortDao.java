@@ -37,7 +37,7 @@ public class TestSortDao extends BaseTest{
 		sort.setUid(1);
 		sort.setDescription("不开空调不行啦");
 		sort.setCreateTime(new Timestamp(System.currentTimeMillis()));
-		sort.setModifyTime(new Date());
+		sort.setModifiedtime(new Date());
 		int n = sortDao.addSort(sort);
 		System.out.println(n);
 	}
@@ -52,7 +52,7 @@ public class TestSortDao extends BaseTest{
 	@Test
 	public void test4(){
 		Sort sort = new Sort();
-		sort.setSid(42);
+		sort.setId(10);
 		sort.setDescription("还用说吗？这还用说吗?");
 		int n = sortDao.updateSort(sort);
 		System.out.println(n);

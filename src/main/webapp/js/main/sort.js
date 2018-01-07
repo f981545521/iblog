@@ -159,8 +159,8 @@ function showSorts(data){
 	var tbody=$('.panel-body tbody');
 	for(var i=0;i<data.length;i++){
 		//获取数据
-		var sid=data[i].sid;
-		var sortname=data[i].sortname;
+		var sid=data[i].id;
+		var sortname=data[i].sort_name;
 		var description=data[i].description;
 		var createtime=new Date(data[i].createtime).format("yyyy-MM-dd hh:mm:ss");
 		//console.log(sortname);

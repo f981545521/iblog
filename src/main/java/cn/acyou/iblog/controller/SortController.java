@@ -80,9 +80,15 @@ public class SortController {
 	public JsonResult updateSort(String sid,String sortName,String description){
 		Sort sort = sortService.updateSort(sid, sortName, description);
 		return new JsonResult(sort);
-
-		
 	}
+
+	@RequestMapping("updateSortByOptmistic.do")
+	@ResponseBody
+	public JsonResult updateSortByOptmistic(Integer id){
+		Sort sort= sortService.updateSort(id);
+		return new JsonResult(sort);
+	}
+
 	
 	@RequestMapping("listSortNames.do")
 	@ResponseBody

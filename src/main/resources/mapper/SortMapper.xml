@@ -1,28 +1,55 @@
-<?xml version="1.0" encoding="UTF-8" ?>  
-<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
- "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace:分类管理 -->
 <mapper namespace="cn.acyou.iblog.dao.SortDao">
+	<resultMap id="BaseResultMap" type="cn.acyou.iblog.entity.Sort">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="sort_name" jdbcType="VARCHAR" property="sortName" />
+		<result column="uid" jdbcType="INTEGER" property="uid" />
+		<result column="description" jdbcType="VARCHAR" property="description" />
+		<result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+		<result column="modifidtime" jdbcType="TIMESTAMP" property="modifytime" />
+		<result column="version" jdbcType="INTEGER" property="version" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id,sort_name,description,createtime,modifiedtime,version
+	</sql>
 	<!-- 查找自己名下的分类 -->
 	<select id="findsSortsByUid" parameterType="string" resultType="map">
-		SELECT sid,sortname,description,createtime FROM ib_sort WHERE uid=#{uid}
+		SELECT
+		<include refid="Base_Column_List"/>
+			FROM ib_sort
+		<where>
+			uid = #{uid}
+		</where>
 	</select>
 	<!-- 添加分类 -->
 	<insert id="addSort" parameterType="cn.acyou.iblog.entity.Sort">
-		insert into ib_sort values(default,#{sortName},#{uid},#{description},default,#{modifyTime})
+		insert into ib_sort (sort_name,uid,description,modifiedtime) values(#{sortName},#{uid},#{description},now())
 	</insert>
 	<!-- 删除指定分类 -->
 	<delete id="delSortBySid" parameterType="string">
-		DELETE FROM ib_sort WHERE sid = #{sid}
+		DELETE FROM ib_sort
+		<where>
+			id = #{id}
+		</where>
 	</delete>
 	<!-- 查找指定分类 -->
 	<select id="findSortBySid" parameterType="string" resultType="cn.acyou.iblog.entity.Sort">
-		SELECT sid,sortName,uid,description,createTime FROM ib_sort where sid = #{sid}
+		SELECT
+		 <include refid="Base_Column_List"/>
+		 FROM ib_sort
+		<where>
+			id = #{id}
+		</where>
 	</select>
 
 	<!-- 查找所有 -->
-	<select id="findAll" resultType="cn.acyou.iblog.vo.SortVo">
-		SELECT sid,sortName,uid,description,createTime,modify_time FROM ib_sort
+	<select id="findAll" resultType="cn.acyou.iblog.entity.Sort">
+		SELECT
+		 <include refid="Base_Column_List"/>
+		 FROM ib_sort
 	</select>
 	
 	<!-- 修改分类 -->
@@ -31,11 +58,8 @@
 		update
 			ib_sort 
 		<set><!-- set标签和SET子句一样的 -->
-			<if test="sid!=null">
-				sid=#{sid},
-			</if>
 			<if test="sortName!=null">
-				sortName=#{sortName},
+				sort_name=#{sortName},
 			</if>
 			<if test="uid!=null">
 				uid=#{uid},
@@ -46,14 +70,20 @@
 			<if test="createTime!=null">
 				createTime=#{createTime},
 			</if>
+			<if test="version!=null">
+				version=#{version},
+			</if>
 		</set>
 		where 
-			sid = #{sid}
+			id = #{id}
 	</update>
 	
 	
 	<!-- 查找分类名与描述 -->
 	<select id="findSortNamesByUid" parameterType="string" resultType="map">
-		SELECT sortname,description from ib_sort where uid = #{uid}
+		SELECT sortname,description from ib_sort
+		<where>
+			uid = #{uid}
+		</where>
 	</select>
 </mapper>

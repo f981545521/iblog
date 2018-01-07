@@ -1,6 +1,7 @@
 ## 项目结构
 - Spring SpringMVC MyBatis 
 
+> 感觉项目整体需要重做了
 
 #### iBlog版本日志
 

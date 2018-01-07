@@ -1,31 +1,34 @@
 package cn.acyou.iblog.entity;
 
+import se.spagettikod.optimist.Identity;
+import se.spagettikod.optimist.OptimisticLocking;
+import se.spagettikod.optimist.Version;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
+@OptimisticLocking("ib_sort")
 public class Sort implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Integer sid;//主键ID
+	@Identity("id")
+	private Integer id;//主键ID
 	private String sortName;//分类名称
 	private Integer uid;//所属用户ID
 	private String description;//描述
 	private Timestamp createTime;//创建时间
-	private Date modifyTime;
+	private Date modifiedtime;
+
+	@Version(value = "version")
+	private Integer version;
 	
 	
 	public Sort() {
 		super();
-	}
-	public Integer getSid() {
-		return sid;
-	}
-	public void setSid(Integer sid) {
-		this.sid = sid;
 	}
 	public String getSortName() {
 		return sortName;
@@ -51,18 +54,33 @@ public class Sort implements Serializable{
 	public void setCreateTime(Timestamp createTime) {
 		this.createTime = createTime;
 	}
-	public Date getModifyTime() {
-		return modifyTime;
+	public Integer getId() {
+		return id;
 	}
-	public void setModifyTime(Date modifyTime) {
-		this.modifyTime = modifyTime;
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	
-	
-	
+
+	public Date getModifiedtime() {
+		return modifiedtime;
+	}
+
+	public void setModifiedtime(Date modifiedtime) {
+		this.modifiedtime = modifiedtime;
+	}
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
+
 	public Sort(Integer sid, String sortName, Integer uid, String description, Timestamp createTime) {
 		super();
-		this.sid = sid;
+		this.id = sid;
 		this.sortName = sortName;
 		this.uid = uid;
 		this.description = description;
@@ -70,7 +88,7 @@ public class Sort implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Sort [sid=" + sid + ", sortName=" + sortName + ", uid=" + uid + ", description=" + description
+		return "Sort [sid=" + id + ", sortName=" + sortName + ", uid=" + uid + ", description=" + description
 				+ ", createTime=" + createTime + "]";
 	}
 	

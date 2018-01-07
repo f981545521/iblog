@@ -38,6 +38,8 @@ public interface SortService {
 	 * @return	影响的行数
 	 */
 	public Sort updateSort(String sid,String sortName,String description);
+
+	Sort updateSort(Integer sid);
 	/**
 	 * 添加文章的时候使用：获取用户所有分类名与描述
 	 * @param uid

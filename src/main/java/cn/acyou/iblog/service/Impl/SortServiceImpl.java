@@ -1,5 +1,7 @@
 package cn.acyou.iblog.service.Impl;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -83,9 +85,10 @@ public class SortServiceImpl implements SortService{
 	 */
 	public Sort updateSort(String sid, String sortName, String description) {
 		Sort sort = new Sort();
-		sort.setSid(Integer.parseInt(sid));
+		sort.setId(Integer.parseInt(sid));
 		sort.setSortName(sortName);
 		sort.setDescription(description);
+		sort.setVersion(0);
 		int n = sortDao.updateSort(sort);
 		if(n == 1){
 			return sortDao.findSortBySid(sid);
@@ -93,7 +96,22 @@ public class SortServiceImpl implements SortService{
 		//这地方还要改善：修改不成功告诉Controller
 		return null;
 	}
-	
+
+	@Override
+	public Sort updateSort(Integer sid) {
+		Sort sort = new Sort();
+		sort.setId(sid);
+		sort.setSortName("乐观的");
+		sort.setDescription("测试大法");
+		sort.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		sort.setModifiedtime(new Date());
+		sort.setUid(6);
+		sort.setVersion(0);
+		int n = sortDao.updateSort(sort);
+		return sortDao.findSortBySid(String.valueOf(sid));
+
+	}
+
 	/**
 	 * 添加文章的时候使用：获取用户所有分类名与描述
 	 * @param uid
