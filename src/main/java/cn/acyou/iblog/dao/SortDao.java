@@ -51,5 +51,5 @@ public interface SortDao {
 	 * 查找所有
 	 * @return
 	 */
-	List<SortVo> findAll();
+	List<Sort> findAll();
 }

@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import cn.acyou.iblog.vo.SortVo;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,10 +23,10 @@ public class TestSortDao extends BaseTest{
 	}
 	@Test
 	public void test1(){
-		List<Map<String,Object>> list=sortDao.findsSortsByUid("1");
-		for(Map<String,Object>map:list){
+		List<Sort> list=sortDao.findAll();
+		for(Sort sortVo:list){
 //			System.out.println(map);
-			log.warn(map);
+			log.warn(sortVo);
 		}
 	}
 	

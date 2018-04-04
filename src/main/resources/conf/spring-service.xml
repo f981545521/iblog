@@ -24,6 +24,8 @@
 	
 	<!-- 增加MVC注解扫描 -->
 	<mvc:annotation-driven/>
+
+	<bean name="lifeBean" class="cn.acyou.iblog.model.LifeBean" init-method="init" destroy-method="destory" />
 </beans>
 
 

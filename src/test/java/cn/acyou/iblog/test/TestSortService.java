@@ -35,8 +35,8 @@ public class TestSortService extends BaseTest{
 
 	@Test
 	public void test2(){
-		List<SortVo> list = sortDao.findAll();
-		for (SortVo sort : list){
+		List<Sort> list = sortDao.findAll();
+		for (Sort sort : list){
 			System.out.println(sort);
 		}
 	}
